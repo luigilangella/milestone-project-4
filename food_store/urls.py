@@ -20,6 +20,6 @@ from home import urls as urls_home
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', include(urls_home)),
+    url(r'^', include(urls_home)),
     url(r'^accounts/', include(urls_accounts)),
 ]
