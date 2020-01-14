@@ -7,6 +7,39 @@
 
             <h3>{{ product.name }}</h3>
             <p class="product-description">{{ product.description }}</p>
+            <form method="GET" action="{% url 'createpost'%}">
+                <span class="input-group-btn">
+                <button class="btn btn-info btn-xs" type="submit">Review</button>
+                </span>
+            </form>
+
+            <div class="row row-flex">
+                <div class="col-xs-6">
+                    <form id="likebutton" method="POST" action="/products/{{product.id}}/preference/1/">
+                        {% csrf_token %}
+                        <input type="hidden">
+
+                        <p>
+                            <button class="btn btn-info btn-xs" type="submit">
+                                <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                            </button> {{product.likes}}
+                        </p>
+                    </form>
+                </div>
+                <div class="col-xs-6">
+                    <form id="dislikebutton" method="POST" action="/products/{{product.id}}/preference/2/">
+                        {% csrf_token %}
+                        <input type="hidden">
+
+                        <p>
+                            <button class="btn btn-info btn-xs" type="submit">
+                                <span class="glyphicon glyphicon-thumbs-down"></span> Dislike
+                            </button> {{product.dislikes}}
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <br>
             <p>{{ product.price }}</p>
 
             <form method="post" action="{% url 'add_to_cart' product.id %}">
