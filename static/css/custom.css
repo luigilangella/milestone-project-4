@@ -1,6 +1,7 @@
 body {
     font-family: Arial;
     padding-top: 100px;
+    background-image: url("/media/images/background.jpg");
 }
 
 footer {
@@ -17,6 +18,7 @@ footer {
 
 .accountform {
     padding-top: 20px;
+    background-color: #d7e43fa3;
 }
 
 .badge {
@@ -59,6 +61,23 @@ caption p {
 .panel-body {
     height: 100%;
     border: 1px solid #ddd;
+    color: black;
+}
+
+.panel-body h3 {
+    color: black;
+}
+
+.panel-transparent {
+    background: rgba(255, 255, 255, 0.678);
+}
+
+.panel-transparent .panel-heading {
+    background: rgba(122, 130, 136, 0.2)!important;
+}
+
+.panel-transparent .panel-body {
+    background: rgba(46, 51, 56, 0.2)!important;
 }
 
 .product-description {
