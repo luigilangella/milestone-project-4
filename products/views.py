@@ -2,6 +2,11 @@ from django.shortcuts import render, get_object_or_404
 from .models import Product, Preference
 from django.contrib.auth.decorators import login_required
 
+
+def shop(request):
+    return render(request, 'shop.html')
+
+
 def all_products(request):
     products = Product.objects.all()
     return render(request, 'products.html', {'products':products})

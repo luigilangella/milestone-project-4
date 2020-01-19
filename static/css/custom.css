@@ -1,89 +1,152 @@
-body {
-    font-family: Arial;
-    padding-top: 100px;
-    background-image: url("/media/images/background.jpg");
-}
-
-footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-top: 1px solid #ededed;
-    color: #A9A9A9;
-}
-
-.icon-bar {
-    background-color: #fff;
-}
-
-.accountform {
-    padding-top: 20px;
-    background-color: #d7e43fa3;
-}
-
-.badge {
-    padding-left: 9px;
-    padding-right: 9px;
-    -webkit-border-radius: 9px;
-    -moz-border-radius: 9px;
-    border-radius: 9px;
-}
-
-.label-warning[href],
-.badge-warning[href] {
-    background-color: #c67605;
-}
-
-.product {
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-}
-
-caption p {
-    word-wrap: break-word;
-}
-
-.row.row-flex {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.panel-default {
-    border-color: transparent;
-    padding: 0 10px;
-}
-
-.panel-body {
-    height: 100%;
-    border: 1px solid #ddd;
-    color: black;
-}
-
-.panel-body h3 {
-    color: black;
-}
-
-.panel-transparent {
-    background: rgba(255, 255, 255, 0.678);
-}
-
-.panel-transparent .panel-heading {
-    background: rgba(122, 130, 136, 0.2)!important;
-}
-
-.panel-transparent .panel-body {
-    background: rgba(46, 51, 56, 0.2)!important;
-}
-
-.product-description {
-    min-height: 40px;
-}
-
-.navbar-form {
-    margin-top: 12px;
-}
+    body {
+        font-family: Arial;
+        padding-top: 100px;
+        background-color: rgba(39, 39, 39, 0.788);
+    }
+    
+    footer {
+        margin-top: 40px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-top: 1px solid #545454;
+        color: white;
+    }
+    
+    .navbar {
+        background-image: none;
+        background-color: #545454;
+        border-bottom: 1px solid #545454;
+        backface-visibility: hidden;
+    }
+    
+    .navbar-form {
+        margin-top: 12px;
+    }
+    
+    .navbar-nav li {
+        margin-right: 20px;
+    }
+    
+    .navbar>.container .navbar-brand,
+    .navbar>.container-fluid .navbar-brand {
+        margin-left: 6px;
+    }
+    
+    .navbar-default .navbar-nav>li>a:hover,
+    .navbar-default .navbar-nav>li>a:focus {
+        background-color: #545454;
+        color: #FFC0CB;
+    }
+    
+    .icon-bar {
+        background-color: #fff;
+    }
+    
+    .accountform {
+        padding-top: 20px;
+        color: black;
+        background-color: #545454;
+    }
+    
+    .badge {
+        padding-left: 9px;
+        padding-right: 9px;
+        -webkit-border-radius: 9px;
+        -moz-border-radius: 9px;
+        border-radius: 9px;
+    }
+    
+    .label-warning[href],
+    .badge-warning[href] {
+        background-color: #c67605;
+    }
+    
+    .product {
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
+    
+    caption p {
+        word-wrap: break-word;
+    }
+    
+    .row.row-flex {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+    
+    .panel-default {
+        border-color: transparent;
+        padding: 0 10px;
+    }
+    
+    .panel-body {
+        height: 100%;
+        border: 1px solid #ddd;
+        color: black;
+    }
+    
+    .panel-body h3 {
+        color: black;
+    }
+    
+    .panel-transparent {
+        background: rgba(255, 255, 255, 0.301);
+    }
+    
+    .panel-transparent .panel-heading {
+        background: rgba(122, 130, 136, 0.2)!important;
+    }
+    
+    .panel-transparent .panel-body {
+        background: rgba(46, 51, 56, 0.2)!important;
+    }
+    
+    .product-description {
+        min-height: 40px;
+    }
+    
+    .carousel-inner>.item>img {
+        width: 50%;
+        margin: auto;
+        height: 400px;
+    }
+    
+    .button.button.btn-cart {
+        border: 1px solid #517c49;
+        font-size: 12px;
+        height: 24px;
+        line-height: 23px;
+        padding: 0 10px;
+        background-color: #517c49;
+        color: #FFF;
+        margin-left: 3px;
+    }
+    
+    .alert.alert-danger {
+        background-color: #961d22;
+        color: #FFF;
+        font-size: 13px;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .alert.alert-success {
+        text-align: center;
+    }
+    
+    h1.header.text-center,
+    h2.header.text-center {
+        color: #2da2e5;
+    }
+    
+    p.copyright.text-center {
+        color: white;
+        font-size: medium;
+        font-weight: bold;
+    }
