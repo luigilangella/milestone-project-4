@@ -1,1 +1,54 @@
-{% extends 'base.html' %} {% block content %} {% endblock %}
+{% extends 'base.html' %} {% block content %}
+
+<div class="row row-flex">
+
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div>
+            <h2 class="menu-title">Product Categories</h2>
+        </div>
+        <ul class="nav nav-pills nav-stacked hidden-xs hidden-sm">
+
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Beverages <span class="caret"></span>
+              </a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'wines' %}">Wines</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav nav-pills nav-stacked hidden-xs hidden-sm">
+
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Food <span class="caret"></span>
+              </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/">DeliCounter</a></li>
+                    <li><a href="/">DryStore</a></li>
+                    <li><a href="/">Frozen</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <a href="/"><img class="img-responsive center-block" src="media/images/BEVERAGES-ICONA1-300x300.png" alt="beverages">
+            <h2 class="mobile-link hidden-md hidden-lg">Beverages</h2>
+        </a>
+
+    </div>
+    <br>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <a href="/"><img class="img-responsive center-block" src="media/images/food-categoryok-e1527585417645-300x300.png" alt="food">
+            <h2 class="mobile-link hidden-md hidden-lg">Food</h2>
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

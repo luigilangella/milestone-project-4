@@ -1,10 +1,15 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product, Preference
+from .models import Product, Preference, Wine
 from django.contrib.auth.decorators import login_required
 
 
 def shop(request):
     return render(request, 'shop.html')
+
+def wines(request):
+    products = Product.objects.filter(red=1)
+    print(products)
+    return render(request, 'wines.html', {'products':products})
 
 
 def all_products(request):
