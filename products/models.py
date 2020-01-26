@@ -54,8 +54,6 @@ class Wine(models.Model):
     sparkling = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='sparkling', blank=True, null=True, to_field='name')
     spirits = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='spirits', blank=True, null=True, to_field='name')
 
-    def __str__(self):
-        return " %s " % (self.red or self.white or self.sparkling or self.spirits)
 
 class Frozen(models.Model):
     
