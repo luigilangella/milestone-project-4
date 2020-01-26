@@ -32,10 +32,18 @@
         margin-left: 6px;
     }
     
+    div.navbar-header a.navbar-brand:hover {
+        color: #317eac;
+    }
+    
     .navbar-default .navbar-nav>li>a:hover,
     .navbar-default .navbar-nav>li>a:focus {
         background-color: #545454;
-        color: #FFC0CB;
+        color: #317eac;
+    }
+    
+    .breadcrumb {
+        background-color: #545454;
     }
     
     .icon-bar {
@@ -108,7 +116,7 @@
     }
     
     .product-description {
-        min-height: 40px;
+        height: 60px;
     }
     
     .carousel-inner>.item>img {
@@ -145,6 +153,10 @@
         color: #2da2e5;
     }
     
+    h3 {
+        font-size: 18px;
+    }
+    
     p.copyright.text-center {
         color: white;
         font-size: medium;
@@ -152,6 +164,29 @@
     }
     
     @media (max-width: 768px) {
+        body {
+            font-family: Arial;
+            padding-top: 70px;
+            background-color: rgba(39, 39, 39, 0.788);
+        }
+        .product-description {
+            min-height: 40px;
+        }
+    }
+    
+    @media screen and (max-width: 1199px) {
+        h2 {
+            font-size: 18px;
+        }
+    }
+    
+    @media screen and (max-width: 1440px) {
+        h2 {
+            font-size: 26px;
+        }
+    }
+    
+    @media (max-width: 375px) {
         h2.menu-title,
         h2.mobile-link {
             text-align: center;

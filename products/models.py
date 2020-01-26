@@ -1,18 +1,59 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class Catalog(models.Model):
+    name = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=150)
+    publisher = models.CharField(max_length=300)
+    description = models.TextField()
+    pub_date = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.name
+    
+
+class CatalogCategory(models.Model):
+    catalog = models.ForeignKey(Catalog, related_name='categories', null=True, blank=True)
+    parent = models.ForeignKey('self', related_name='children', null=True, blank=True)
+    name = models.CharField(max_length=300)
+    slug = models.SlugField(max_length=150)
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        if self.parent:
+            return u'%s : %s - %s' % (self.catalog.name, self.parent.name, self.name)
+        else:
+            return u'%s : %s' % (self.catalog.name, self.name)
 
 class Product(models.Model):
-    
-    name = models.CharField(max_length=254, default='', unique=True)
+    category = models.ForeignKey(CatalogCategory, related_name='products', null=True)
+    name = models.CharField(max_length=254)
+    slug = models.SlugField(max_length=300, null=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    manufacturer = models.CharField(max_length=300, blank=True)
     image = models.ImageField(upload_to='images')
     likes= models.IntegerField(default=0)
     dislikes= models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
+
+class ProductDetail(models.Model):
+    product = models.ForeignKey(Product, related_name='details')
+    attribute  = models.ForeignKey('ProductAttribute')
+    value = models.CharField(max_length=500)
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return u'%s : %s - %s' % (self.product, self.attribute, self.value)
+
+class ProductAttribute(models.Model):
+    name = models.CharField(max_length=300)
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return u'%s' % self.name
 
 class Preference(models.Model):
     user= models.ForeignKey(User)
@@ -27,43 +68,6 @@ class Preference(models.Model):
     class Meta:
        unique_together = ("user", "product", "value")     
 
-class DeliCounter(models.Model):
-    
-    cheese = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='cheese', blank=True, null=True, to_field='name')
-    cured_meats = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='cured_meats', blank=True, null=True, to_field='name')
-    fresh_meat = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='fresh_meat', blank=True, null=True, to_field='name')
-    fruit_veg = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='fruit_veg', blank=True, null=True, to_field='name')
-
-    def __str__(self):
-        return " %s " % (self.cheese or self.cured_meats or self.fresh_meat or self.fruit_veg)
-
-class DryStore(models.Model):
-    
-    pasta = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='pasta', blank=True, null=True, to_field='name')
-    oil = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='oil', blank=True, null=True, to_field='name')
-    flour = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='flour', blank=True, null=True, to_field='name')
-    herbs = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='herbs', blank=True, null=True, to_field='name')
-
-    def __str__(self):
-        return " %s " % (self.pasta or self.oil or self.flour or self.herbs)
-
-class Wine(models.Model):
-    
-    red = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='red', blank=True, null=True, to_field='name')
-    white = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='white', blank=True, null=True, to_field='name')
-    sparkling = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='sparkling', blank=True, null=True, to_field='name')
-    spirits = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='spirits', blank=True, null=True, to_field='name')
-
-
-class Frozen(models.Model):
-    
-    fish = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='fish', blank=True, null=True, to_field='name')
-    vegetables = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='vegetables', blank=True, null=True, to_field='name')
-    meats = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='meats', blank=True, null=True, to_field='name')
-    ready_meals = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='ready_meals', blank=True, null=True, to_field='name')
-
-    def __str__(self):
-        return " %s " % (self.fish or self.vegetables or self.meats or self.ready_meals)
 
     
    

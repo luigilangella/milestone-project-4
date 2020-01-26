@@ -1,49 +1,44 @@
 {% extends 'base.html' %} {% block content %}
+
 <div class="row row-flex">
-    <div class="col-sm-6 col-md-4 col-lg-4">
-        <div class="jumbotron jumbotron-fluid" style="height: 100%;background-color: #545454;">
-            <div class="container">
-                <h2 class="category-header">Wines and Spirits</h2>
-                <ul class="nav nav-pills nav-stacked">
 
-                    <li role="presentation" class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            Beverages <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu active">
-                            <li>
-                                <a href="{% url 'wines' %}">Wines</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav nav-pills nav-stacked">
-
-                    <li role="presentation" class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            Food <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{% url 'dairy' %}">Dairy</a></li>
-                            <li><a href="{% url 'cured_meats' %}">Cured Meats</a></li>
-                            <li><a href="{% url 'fruit_and_veg' %}">Fruit and Veg</a></li>
-                            <li><a href="{% url 'fish_fresh' %}">Fresh Fish and Seafood</a></li>
-                            <li><a href="{% url 'fish_frozen' %}">Frozen Fish and Seafood</a></li>
-                            <li><a href="{% url 'dry_store' %}">Dry Store</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div>
+            <h2 class="menu-title">Product Categories</h2>
         </div>
+        <ul class="nav nav-pills nav-stacked">
+
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Beverages <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu active">
+                    <li>
+                        <a href="{% url 'wines' %}">Wines</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav nav-pills nav-stacked">
+
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Food <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'dairy' %}">Dairy</a></li>
+                    <li><a href="{% url 'cured_meats' %}">Cured Meats</a></li>
+                    <li><a href="{% url 'fruit_and_veg' %}">Fruit and Veg</a></li>
+                    <li><a href="{% url 'fish_fresh' %}">Fresh Fish and Seafood</a></li>
+                    <li><a href="{% url 'fish_frozen' %}">Frozen Fish and Seafood</a></li>
+                    <li><a href="{% url 'dry_store' %}">Dry Store</a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
-    <div class="col-sm-6 col-md-8 col-lg-8">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{% url 'shop' %}">Shop</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Wines & Spirits</li>
-            </ol>
-        </nav>
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+        <h2 class="menu-title text-center">Dairy</h2>
         {% for product in products %}
-        <div class="col-md-4 col-lg-4 display panel panel-transparent">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 display panel panel-transparent">
             <div class="panel-body">
                 <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product, Preference, Wine
+from .models import Product, Preference, CatalogCategory, Catalog, ProductDetail, ProductAttribute
 from django.contrib.auth.decorators import login_required
 
 
@@ -7,9 +7,39 @@ def shop(request):
     return render(request, 'shop.html')
 
 def wines(request):
-    products = Product.objects.filter(red=1)
+    products = Product.objects.all().filter(category__name='Wine')
     print(products)
     return render(request, 'wines.html', {'products':products})
+
+def dairy(request):
+    products = Product.objects.all().filter(category__name='Dairy')
+    print(products)
+    return render(request, 'dairy.html', {'products':products})
+
+def cured_meats(request):
+    products = Product.objects.all().filter(category__name='Cured Meats')
+    print(products)
+    return render(request, 'cured_meats.html', {'products':products})
+
+def fruit_and_veg(request):
+    products = Product.objects.all().filter(category__name='Fruit and Veg')
+    print(products)
+    return render(request, 'fruit_and_veg.html', {'products':products})
+
+def fish_fresh(request):
+    products = Product.objects.all().filter(category__name="Fish and Seafood").filter(details__value='fresh')
+    print(products)
+    return render(request, 'fish_fresh.html', {'products':products})
+
+def fish_frozen(request):
+    products = Product.objects.all().filter(category__name="Fish and Seafood").filter(details__value='frozen')
+    print(products)
+    return render(request, 'fish_frozen.html', {'products':products})
+
+def dry_store(request):
+    products = Product.objects.all().filter(category__name="Dry Store")
+    print(products)
+    return render(request, 'dry_store.html', {'products':products})
 
 
 def all_products(request):
