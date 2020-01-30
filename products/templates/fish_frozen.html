@@ -1,92 +1,101 @@
 {% extends 'base.html' %} {% block content %}
-
 <div class="row row-flex">
+    <div class="col-sm-6 col-md-4 col-lg-4">
+        <div class="jumbotron jumbotron-fluid" style="height: 100%;background-color: #545454;">
+            <div class="container">
+                <h2>Frozen Fish and Seafood</h2>
+                <ul class="nav nav-pills nav-stacked">
 
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-        <div>
-            <h2 class="menu-title">Product Categories</h2>
-        </div>
-        <ul class="nav nav-pills nav-stacked">
-
-            <li role="presentation" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    Beverages <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu active">
-                    <li><a href="{% url 'wines' %}">Wines</a></li>
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Beverages <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu active">
+                            <li>
+                                <a href="{% url 'wines' %}">Wines</a></li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked">
+                <ul class="nav nav-pills nav-stacked">
 
-            <li role="presentation" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    Food <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="{% url 'dairy' %}">Dairy</a></li>
-                    <li><a href="{% url 'cured_meats' %}">Cured Meats</a></li>
-                    <li><a href="{% url 'fruit_and_veg' %}">Fruit and Veg</a></li>
-                    <li><a href="{% url 'fish_fresh' %}">Fresh Fish and Seafood</a></li>
-                    <li><a href="{% url 'fish_frozen' %}">Frozen Fish and Seafood</a></li>
-                    <li><a href="{% url 'dry_store' %}">Dry Store</a></li>
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Food <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'dairy' %}">Dairy</a></li>
+                            <li><a href="{% url 'cured_meats' %}">Cured Meats</a></li>
+                            <li><a href="{% url 'fruit_and_veg' %}">Fruit and Veg</a></li>
+                            <li><a href="{% url 'fish_fresh' %}">Fresh Fish and Seafood</a></li>
+                            <li><a href="{% url 'fish_frozen' %}">Frozen Fish and Seafood</a></li>
+                            <li><a href="{% url 'dry_store' %}">Dry Store</a></li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-        </ul>
-    </div>
-    {% for product in products %}
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 display panel panel-transparent">
-        <div class="panel-body">
-            <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
-
-            <h3>{{ product.name }}</h3>
-            <p class="product-description">{{ product.description }}</p>
-            <form method="GET" action="{% url 'createpost'%}">
-                <span class="input-group-btn">
-                    <button class="btn btn-info btn-xs" type="submit">Review</button>
-                </span>
-            </form>
-
-            <div class="row row-flex">
-                <div class="col-xs-6">
-                    <form id="likebutton" method="POST" action="/products/{{product.id}}/preference/1/">
-                        {% csrf_token %}
-                        <input type="hidden">
-
-                        <p>
-                            <button class="btn btn-info btn-xs" type="submit">
-                                <span class="glyphicon glyphicon-thumbs-up"></span> Like
-                            </button> {{product.likes}}
-                        </p>
-                    </form>
-                </div>
-                <div class="col-xs-6">
-                    <form id="dislikebutton" method="POST" action="/products/{{product.id}}/preference/2/">
-                        {% csrf_token %}
-                        <input type="hidden">
-
-                        <p>
-                            <button class="btn btn-info btn-xs" type="submit">
-                                <span class="glyphicon glyphicon-thumbs-down"></span> Dislike
-                            </button> {{product.dislikes}}
-                        </p>
-                    </form>
-                </div>
             </div>
-            <br>
-            <p>{{ product.price }}</p>
-
-            <form method="post" action="{% url 'add_to_cart' product.id %}">
-                {% csrf_token %}
-                <div class="input-group">
-                    <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
-                    <span class="input-group-btn">
-                        <button class="btn btn-success" type="submit">Add</button>
-                    </span>
-                </div>
-            </form>
         </div>
     </div>
-    {% endfor %}
+    <div class="col-sm-6 col-md-8 col-lg-8">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'shop' %}">Shop</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Frozen Fish and Seafood</li>
+            </ol>
+        </nav>
+        {% for product in products %}
+        <div class="col-md-4 col-lg-4 display panel panel-transparent">
+            <div class="panel-body">
+                <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
+
+                <h3>{{ product.name }}</h3>
+                <p class="product-description">{{ product.description }}</p>
+                <form method="GET" action="{% url 'createpost'%}">
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-xs" type="submit">Review</button>
+                    </span>
+                </form>
+
+                <div class="row row-flex">
+                    <div class="col-xs-6">
+                        <form id="likebutton" method="POST" action="/products/{{product.id}}/preference/1/">
+                            {% csrf_token %}
+                            <input type="hidden">
+
+                            <p>
+                                <button class="btn btn-info btn-xs" type="submit">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                                </button> {{product.likes}}
+                            </p>
+                        </form>
+                    </div>
+                    <div class="col-xs-6">
+                        <form id="dislikebutton" method="POST" action="/products/{{product.id}}/preference/2/">
+                            {% csrf_token %}
+                            <input type="hidden">
+
+                            <p>
+                                <button class="btn btn-info btn-xs" type="submit">
+                                    <span class="glyphicon glyphicon-thumbs-down"></span> Dislike
+                                </button> {{product.dislikes}}
+                            </p>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <p>{{ product.price }}</p>
+
+                <form method="post" action="{% url 'add_to_cart' product.id %}">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit">Add</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

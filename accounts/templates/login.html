@@ -1,15 +1,24 @@
-{% extends "base.html" %}
-{% load bootstrap_tags %}
-{% block content %}
-    <form method="post" action="{% url 'login' %}?next={{ next }}" class="accountform">
-        <fieldset class="form-group">
-            <legend>Login</legend>
-            {% csrf_token %}
-            {{ user_form | as_bootstrap }}
-            
-             <p><a href="{% url 'password_reset' %}">Forgot my password</a></p>
-             
-            <button type="submit" class="btn btn-primary">Login</button>
-        </fieldset>
-    </form>
+{% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
+<div class="row row-flex">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <form method="post" action="{% url 'login' %}?next={{ next }}" class="accountform">
+            <fieldset class="form-group">
+                <legend>Login</legend>
+                {% csrf_token %} {{ user_form | as_bootstrap }}
+
+                <p><a href="{% url 'password_reset' %}">Forgot my password</a></p>
+
+                <button type="submit" class="btn btn-primary">Login</button>
+            </fieldset>
+        </form>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+        <h2 class="header-login">Welcome to Luigi's Food shop!</h2>
+        <h3 class="sub-header-login">Sign in to enjoy our wonderful products from Italy.</h3>
+        <div>
+            <img class="img-responsive center-block" src="/media/images/BEVERAGES-ICONA1-300x300.png" alt="beverages">
+            <img class="img-responsive center-block" src="/media/images/food-categoryok-e1527585417645-300x300.png" alt="food">
+        </div>
+    </div>
+</div>
 {% endblock %}

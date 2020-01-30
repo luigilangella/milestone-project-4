@@ -1,12 +1,16 @@
 {% extends 'base.html' %} {% block content %}
+<div class="display panel panel-transparent">
+    <div class="panel-body">
+        <h1>Product Reviewed: {{eachpost.title}}</h1>
 
-<h1>Product Reviewed: {{eachpost.title}}</h1>
+        <h1>Content: {{eachpost.content}}</h1>
+        <br/>
 
-<h1>Content: {{eachpost.content}}</h1>
-<br/>
+        <h1>Author: {{ eachpost.author }}</h1>
 
-<h1>Author: {{ eachpost.author }}</h1>
-
+        <div class="author-image" style="background-image: url('{{ MEDIA_URL }}{{ eachpost.image }}')"></div>
+    </div>
+</div>
 
 
 {% endblock %}

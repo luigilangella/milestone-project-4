@@ -10,6 +10,7 @@ class Post(models.Model):
     content= models.TextField()
     pub_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
     author= models.ForeignKey(User)
+    image = models.ImageField(upload_to='images', null=True, blank=True)
     
 
 

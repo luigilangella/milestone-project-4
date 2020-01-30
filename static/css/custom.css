@@ -51,9 +51,27 @@
     }
     
     .accountform {
-        padding-top: 20px;
-        color: black;
+        padding-top: 68px;
+        color: #4db0ea;
         background-color: #545454;
+    }
+    
+    .accountform.register {
+        padding-top: 20px;
+        color: #4db0ea;
+        background-color: #545454;
+    }
+    
+    legend {
+        display: block;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 20px;
+        font-size: 21px;
+        line-height: inherit;
+        color: #4db0ea;
+        border: 0;
+        border-bottom: 1px solid #e5e5e5;
     }
     
     .badge {
@@ -70,6 +88,15 @@
     }
     
     .product {
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
+    
+    .author-image {
         background-size: contain;
         background-position: center center;
         background-repeat: no-repeat;
@@ -153,6 +180,11 @@
         color: #2da2e5;
     }
     
+    h2.header-login,
+    h3.sub-header-login {
+        text-align: center;
+    }
+    
     h3 {
         font-size: 18px;
     }
@@ -163,7 +195,26 @@
         font-weight: bold;
     }
     
-    @media (max-width: 768px) {
+    @media (max-width: 320px) {
+        .center-block {
+            display: -webkit-inline-box;
+            margin-left: -20px;
+            margin-right: 0px;
+        }
+    }
+    
+    @media (min-width:321px) and (max-width: 375px) {
+        .center-block {
+            display: -webkit-inline-box;
+            margin-left: 1px;
+            margin-right: auto;
+        }
+        .accountform {
+            padding-top: 0px;
+        }
+    }
+    
+    @media (min-width:376px) and (max-width: 768px) {
         body {
             font-family: Arial;
             padding-top: 70px;
@@ -174,21 +225,48 @@
         }
     }
     
+    @media (min-width: 768px) and (max-width: 768px) {
+        div.img-fixed {
+            padding-top: 60px;
+        }
+        .center-block {
+            display: -webkit-inline-box;
+            margin-left: 22px;
+            margin-right: auto;
+            width: -webkit-fill-available;
+        }
+    }
+    
     @media screen and (max-width: 1199px) {
         h2 {
-            font-size: 18px;
+            font-size: 16px;
         }
     }
     
-    @media screen and (max-width: 1440px) {
+    @media (min-width: 1200px) and (max-width: 1440px) {
         h2 {
-            font-size: 26px;
+            font-size: 22px;
         }
     }
     
-    @media (max-width: 375px) {
+    @media (min-width: 376px) and (max-width: 414px) {
         h2.menu-title,
         h2.mobile-link {
             text-align: center;
+        }
+        .center-block {
+            display: -webkit-inline-box;
+            margin-left: 28px;
+            margin-right: auto;
+        }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .center-block {
+            display: -webkit-inline-box;
+            padding-top: 40px;
+            margin-left: 0;
+            margin-right: auto;
+            width: 218px;
         }
     }
