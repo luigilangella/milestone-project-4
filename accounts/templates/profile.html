@@ -1,8 +1,8 @@
 {% extends "base.html" %} {% block content %}
-<div class="row row-flex">
-    <div class="container-fluid">
-        <div class="col-md-5 col-lg-5">
-            <div class="jumbotron" style="background-color: #545454;">
+<div class="container container-fluid">
+    <div class="row row-flex">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div>
                 <h2 class="header-profile">Welcome Back to the Store {{user.username}}</h2>
 
                 <h4 class="sub-header-profile">You are Logged in as {{user.first_name}} {{user.last_name}}</h4>
@@ -12,12 +12,10 @@
                 <h4 class="sub-header-profile">Last Login: {{user.last_login}}</h4>
             </div>
         </div>
-        <div class="col-md-7 col-lg-7">
-            <div class="jumbotron image-canvas" style="background-color: #545454;padding-left: 35px;padding-top: 30px;">
-
-                <img class="img-responsive profile center-block" src="/media/images/BEVERAGES-ICONA1-300x300.png" alt="beverages">
-                <img class="img-responsive profile center-block" src="/media/images/food-categoryok-e1527585417645-300x300.png" alt="food">
-
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+            <div>
+                <img class="img-responsive center-block" src="/media/images/BEVERAGES-ICONA1-300x300.png" alt="beverages">
+                <img class="img-responsive center-block" src="/media/images/food-categoryok-e1527585417645-300x300.png" alt="food">
             </div>
         </div>
     </div>

@@ -1,84 +1,71 @@
 {% extends 'base.html' %} {% block content %}
-
-<div class="row row-flex">
-    <div class="col-sm-6 col-md-4 col-lg-4">
-        <div class="jumbotron jumbotron-fluid" style="height: 100%;background-color: #545454;">
-            <div class="container">
-                <h2 class="category-header">Product Categories</h2>
-                <ul class="nav nav-pills nav-stacked">
-
-                    <li role="presentation" class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+<div class="container container-fluid">
+    <div class="row row-flex">
+        <div class="col-md-4 col-lg-4">
+            <h2 class="category-header">Product Categories</h2>
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                             Beverages <span class="caret"></span>
                         </a>
-                        <ul class="dropdown-menu active">
-                            <li>
-                                <a href="{% url 'wines' %}">Wines</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav nav-pills nav-stacked">
-
-                    <li role="presentation" class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <ul class="dropdown-menu active">
+                        <li>
+                            <a href="{% url 'wines' %}">Wines</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                             Food <span class="caret"></span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{% url 'dairy' %}">Dairy</a></li>
-                            <li><a href="{% url 'cured_meats' %}">Cured Meats</a></li>
-                            <li><a href="{% url 'fruit_and_veg' %}">Fruit and Veg</a></li>
-                            <li><a href="{% url 'fish_fresh' %}">Fresh Fish and Seafood</a></li>
-                            <li><a href="{% url 'fish_frozen' %}">Frozen Fish and Seafood</a></li>
-                            <li><a href="{% url 'dry_store' %}">Dry Store</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'dairy' %}">Dairy</a></li>
+                        <li><a href="{% url 'cured_meats' %}">Cured Meats</a></li>
+                        <li><a href="{% url 'fruit_and_veg' %}">Fruit and Veg</a></li>
+                        <li><a href="{% url 'fish_fresh' %}">Fresh Fish and Seafood</a></li>
+                        <li><a href="{% url 'fish_frozen' %}">Frozen Fish and Seafood</a></li>
+                        <li><a href="{% url 'dry_store' %}">Dry Store</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4 col-lg-4 img-fixed">
+
+            <h2 class="mobile-link hidden-sm hidden-md hidden-lg">Beverages</h2>
+            <img class="img-responsive center-block shop visible-sm visible-md visible-lg" src="media/images/BEVERAGES-ICONA1-300x300.png" alt="beverages">
+            <ul class="nav nav-pills nav-stacked hidden-sm hidden-md hidden-lg">
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        <img class="img-responsive center-block shop" src="media/images/BEVERAGES-ICONA1-300x300.png" alt="beverages"> <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'wines' %}">Wines</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4 col-lg-4 img-fixed">
+            <h2 class="mobile-link hidden-sm hidden-md hidden-lg">Food</h2>
+            <img class="img-responsive center-block shop visible-sm visible-md visible-lg" src="media/images/food-categoryok-e1527585417645-300x300.png" alt="food">
+            <ul class="nav nav-pills nav-stacked hidden-sm hidden-md hidden-lg">
+
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        <img class="img-responsive center-block shop" src="media/images/food-categoryok-e1527585417645-300x300.png" alt="food">
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'dairy' %}">Dairy</a></li>
+                        <li><a href="{% url 'cured_meats' %}">Cured Meats</a></li>
+                        <li><a href="{% url 'fruit_and_veg' %}">Fruit and Veg</a></li>
+                        <li><a href="{% url 'fish_fresh' %}">Fresh Fish and Seafood</a></li>
+                        <li><a href="{% url 'fish_frozen' %}">Frozen Fish and Seafood</a></li>
+                        <li><a href="{% url 'dry_store' %}">Dry Store</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 img-fixed">
-
-        <h2 class="mobile-link hidden-sm hidden-md hidden-lg">Beverages</h2>
-        <img class="img-responsive center-block visible-sm visible-md visible-lg" src="media/images/BEVERAGES-ICONA1-300x300.png" alt="beverages">
-        <ul class="nav nav-pills nav-stacked hidden-sm hidden-md hidden-lg">
-            <li role="presentation" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img class="img-responsive center-block" src="media/images/BEVERAGES-ICONA1-300x300.png" alt="beverages"> <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="{% url 'wines' %}">Wines</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <br>
-    <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 img-fixed">
-        <h2 class="mobile-link hidden-sm hidden-md hidden-lg">Food</h2>
-        <img class="img-responsive center-block visible-sm visible-md visible-lg" src="media/images/food-categoryok-e1527585417645-300x300.png" alt="food">
-        <ul class="nav nav-pills nav-stacked hidden-sm hidden-md hidden-lg">
-
-            <li role="presentation" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img class="img-responsive center-block" src="media/images/food-categoryok-e1527585417645-300x300.png" alt="food">
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="{% url 'dairy' %}">Dairy</a></li>
-                    <li><a href="{% url 'cured_meats' %}">Cured Meats</a></li>
-                    <li><a href="{% url 'fruit_and_veg' %}">Fruit and Veg</a></li>
-                    <li><a href="{% url 'fish_fresh' %}">Fresh Fish and Seafood</a></li>
-                    <li><a href="{% url 'fish_frozen' %}">Frozen Fish and Seafood</a></li>
-                    <li><a href="{% url 'dry_store' %}">Dry Store</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
 </div>
-
-
-
-
-
-
-
 {% endblock %}

@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse
+from django.http import HttpResponseRedirect
 
 def view_cart(request):
     """
@@ -17,7 +18,7 @@ def add_to_cart(request, id):
     else:
         cart[id] = cart.get(id, quantity) 
     request.session['cart'] = cart
-
+    
     return redirect(reverse('index'))
 
 def adjust_cart(request, id):
