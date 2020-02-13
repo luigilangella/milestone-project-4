@@ -1,19 +1,29 @@
 {% extends 'base.html' %} {% block content %} {% for post in allposts %}
-<div class="row">
-    <div class="col-md-2 col-sm-3 text-center">
-        <p><span class="boldtext">Author:</span> {{ post.author }}</p>
-    </div>
-    <div class="col-md-10 col-sm-9">
-        <h3>{{ post.title }}</h3>
+<div class="container container-fluid">
+    <div class="jumbotron">
         <div class="row">
-            <div class="col-xs-9">
-                <p>{{ post.content|truncatewords:30 }}</p>
-                <p><a href="{% url 'detail' post.id %}" class="btn btn-default">Read more</a></p>
-                <p><span class="boldtext">Published on:</span> {{ post.pub_date }} </p>
-
+            <div class="col-md-2 col-sm-3 text-center">
+                <a class="story-img" href="#">
+                    <img src="/media/images/hiclipart.com.png" class="img-circle">
+                </a>
+                <p><span class="boldtext">Author:</span> {{ post.author }}</p>
             </div>
+            <div class="col-md-10 col-sm-9">
+                <h3>{{ post.title }}</h3>
+                <div class="row">
+                    <div class="col-xs-9">
+                        <p>{{ post.content|truncatewords:30 }}</p>
+                        <p><a href="{% url 'detail' post.id %}" class="btn btn-default">Read more</a></p>
+                        <p><span class="boldtext">Published on:</span> {{ post.pub_date }} </p>
+
+                    </div>
+                </div>
+            </div>
+
+            <hr>
         </div>
+
     </div>
-    <hr>
+
 </div>
-{% endfor %} {% endblock %}
+{% endfor %}{% endblock %}

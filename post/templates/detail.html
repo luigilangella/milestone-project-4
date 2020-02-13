@@ -1,16 +1,27 @@
 {% extends 'base.html' %} {% block content %}
-<div class="display panel panel-transparent">
-    <div class="panel-body">
-        <h1>Product Reviewed: {{eachpost.title}}</h1>
-
-        <h1>Content: {{eachpost.content}}</h1>
-        <br/>
-
-        <h1>Author: {{ eachpost.author }}</h1>
-
-        <div class="author-image" style="background-image: url('{{ MEDIA_URL }}{{ eachpost.image }}')"></div>
+<div class="container container-fluid">
+    <div class="jumbotron">
+        <div class="row row-flex">
+            <div class="col-md-2 col-sm-3 text-center">
+                <a class="story-img" href="#">
+                    {% if eachpost.image  %}
+                        <div class="author-image" style="background-image: url('{{ MEDIA_URL }}{{ eachpost.image }}')"></div>
+                    {% else %}
+                        <img src="/media/images/hiclipart.com.png" class="img-circle">
+                    {% endif %}
+                </a>
+                <p><span class="boldtext">Author:</span> {{ eachpost.author }}</p>
+            </div>
+            <div class="col-md-10 col-sm-9">
+                <h3>Product Reviewed: {{eachpost.title}}</h3>
+                <div class="row row-flex">
+                    <div class="col-xs-9">
+                        <p>Content: {{eachpost.content}}</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
     </div>
-</div>
 
-
-{% endblock %}
+    {% endblock %}

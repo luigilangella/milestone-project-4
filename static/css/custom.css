@@ -94,11 +94,19 @@ legend {
     margin: 0 auto;
 }
 
-.author-image {
+.img-circle {
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
     width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.author-image {
+    background-size: contain;
+    background-position: center right;
+    background-repeat: no-repeat;
     height: 150px;
     margin: 0 auto;
 }
@@ -261,143 +269,3 @@ p.copyright.text-center {
         margin-top: 0em;
     }
 }
-
-
-/* 
-@media (max-width: 320px) {
-    .center-block {
-        display: -webkit-inline-box;
-        margin-left: -20px;
-        margin-right: 0px;
-    }
-    div.jumbotron.image-canvas {
-        background-color: #545454;
-        padding-left: 54px !important;
-        padding-top: 30px;
-    }
-}
-
-@media (min-width:321px) and (max-width: 375px) {
-    .center-block {
-        display: -webkit-inline-box;
-        margin-left: 1px;
-        margin-right: auto;
-    }
-    .accountform {
-        padding-top: 0px;
-    }
-    div.jumbotron.image-canvas {
-        background-color: #545454;
-        padding-left: 15px !important;
-        padding-top: 30px;
-    }
-}
-
-@media (min-width:376px) and (max-width: 768px) {
-    body {
-        font-family: Arial;
-        padding-top: 70px;
-        background-color: rgba(39, 39, 39, 0.788);
-    }
-    .product-description {
-        min-height: 40px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 768px) {
-    div.img-fixed {
-        padding-top: 60px;
-    }
-    .center-block {
-        display: -webkit-inline-box;
-        margin-left: 22px;
-        margin-right: auto;
-        width: -webkit-fill-available;
-    }
-    .center-block.register {
-        padding-top: 40px;
-        display: -webkit-inline-box;
-        margin-left: 5px;
-        margin-right: auto;
-        width: 228px;
-    }
-}
-
-@media screen and (max-width: 1199px) {
-    h2 {
-        font-size: 16px;
-    }
-}
-
-@media (min-width: 1200px) and (max-width: 1440px) {
-    h2 {
-        font-size: 22px;
-    }
-    .center-block {
-        display: -webkit-inline-box;
-        width: 218px;
-    }
-    .center-block.register {
-        display: -webkit-inline-box;
-        padding-top: 20px;
-        margin-left: 60px;
-        width: 285px;
-    }
-    div.jumbotron.image-canvas {
-        padding-top: 65px !important;
-    }
-}
-
-@media (min-width: 376px) and (max-width: 414px) {
-    h2.menu-title,
-    h2.mobile-link {
-        text-align: center;
-    }
-    .center-block {
-        display: -webkit-inline-box;
-        margin-left: 28px;
-        margin-right: auto;
-    }
-    div.jumbotron.image-canvas {
-        background-color: #545454;
-        padding-left: 0px !important;
-        padding-top: 30px;
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-    .center-block {
-        display: -webkit-inline-box;
-        padding-top: 40px;
-        margin-left: 0;
-        margin-right: auto;
-        width: 218px;
-    }
-    .center-block.register {
-        display: -webkit-inline-box;
-        padding-top: 30px;
-        margin-left: 24px;
-        width: 200px;
-    }
-    div.jumbotron.image-canvas {
-        background-color: #545454;
-        padding-left: 15px !important;
-        padding-top: 30px;
-    }
-}
-
-@media (min-width: 1441px) {
-    .center-block {
-        display: -webkit-inline-box;
-        width: 218px;
-    }
-    .center-block.register {
-        display: -webkit-inline-box;
-        padding-top: 20px;
-        margin-left: 72px;
-        width: 271px;
-    }
-    div.jumbotron.image-canvas {
-        padding-top: 74px !important;
-    }
-} */

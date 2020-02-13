@@ -1,7 +1,13 @@
 {% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
-<h1>New Post</h1>
-<form method="POST">
-    {% csrf_token %} {{ form|as_bootstrap }}
-    <button type="submit" class="btn btn-info">Save</button>
-</form>
+<div class="container container-fluid">
+    <div class="row rowflex">
+        <div class="col-xs-12 col-sm-12">
+            <h1 class="text-center">New Post</h1>
+        </div>
+        <form method="POST" style="color: black;">
+            {% csrf_token %} {{ form|as_bootstrap }}
+            <button type="submit" class="btn btn-info">Save</button>
+        </form>
+    </div>
+</div>
 {% endblock %}
