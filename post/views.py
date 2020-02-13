@@ -15,10 +15,9 @@ def createpost(request):
             post.title = request.POST.get('title')
             post.content = request.POST.get('content')
             post.author = request.user
-            post.image = 'images/' + request.POST.get('image')
+            post.image = request.POST.get('image')
             post.save()
             allposts = Post.objects.all()
-
             context = {'allposts': allposts}
             return render(request, 'home.html', context)
 
@@ -37,7 +36,6 @@ def home(request):
 
 def detail_post_view(request, id=None):
     eachpost = get_object_or_404(Post, id=id)
-    print(eachpost.image.url)
     context = {'eachpost': eachpost}
 
     return render(request, 'detail.html', context)

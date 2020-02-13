@@ -5,7 +5,7 @@
             <div class="col-md-2 col-sm-3 text-center">
                 <a class="story-img" href="#">
                     {% if eachpost.image  %}
-                        <div class="author-image" style="background-image: url('{{ MEDIA_URL }}{{ eachpost.image }}')"></div>
+                        <div class="author-image" style="background-image: url('{{ MEDIA_URL }}images/{{ eachpost.image }}')"></div>
                     {% else %}
                         <img src="/media/images/hiclipart.com.png" class="img-circle">
                     {% endif %}

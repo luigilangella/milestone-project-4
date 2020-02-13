@@ -4,7 +4,11 @@
         <div class="row">
             <div class="col-md-2 col-sm-3 text-center">
                 <a class="story-img" href="#">
-                    <img src="/media/images/hiclipart.com.png" class="img-circle">
+                    {% if post.image  %}
+                        <div class="author-image" style="background-image: url('{{ MEDIA_URL }}images/{{ post.image }}')"></div>
+                    {% else %}
+                        <img src="/media/images/hiclipart.com.png" class="img-circle">
+                    {% endif %}
                 </a>
                 <p><span class="boldtext">Author:</span> {{ post.author }}</p>
             </div>
