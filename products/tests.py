@@ -1,30 +1,34 @@
 from django.test import TestCase
-from .models import Product, DeliCounter
+from .models import Catalog, CatalogCategory, Product, ProductDetail, ProductAttribute, Preference
 
-# Create your tests here.
-class ProductTests(TestCase):
-    """
-    Here we'll define the tests that we'll run against our
-    Product model
-    """
+class TestCatalog(TestCase):
+    def test_str_catalog(self):
+        new_catalog = Catalog(name='winter')
+        self.assertEqual(new_catalog.name, 'winter')
 
-    def test_str(self):
-        test_name = Product(name='A product')
-        self.assertEqual(str(test_name), 'A product')
+class TestCatalogCategory(TestCase):
+    def test_str_catalog_category(self):
+        new_catalog_category = CatalogCategory(name='food and drinks')
+        self.assertEqual(new_catalog_category.name, 'food and drinks')
 
-    def test_price(self):
-        test_price = Product(price=12.55)
-        self.assertEqual(test_price.price, 12.55)
+class TestProduct(TestCase):
+    def test_str_product(self):
+        new_product = Product(name='salame')
+        self.assertEqual(new_product.name, 'salame')
 
-class DeliCounterTests(TestCase):
-    """
-    Here we'll define the tests that we'll run against our
-    DeliCounter model
-    """
+class TestProductDetail(TestCase):
+    def test_str_detail(self):
+        new_product_detail = ProductDetail(description='abv%', value=12.5)
+        self.assertEqual(new_product_detail.description, 'abv%')
+        self.assertEqual(new_product_detail.value, 12.5)
 
-    def test_cheese_section_add(self):
-        test_name = DeliCounter(cheese=Product(name='salami'))
-        self.assertIn('salami',str(test_name))
-    def test_cured_meats_section_add(self):
-        test_name = DeliCounter(cured_meats=Product(name='prosciutto'))
-        self.assertIn('prosciutto',str(test_name))
+class TestProductAttribute(TestCase):
+    def test_str_attribute(self):
+        new_product_attribute = ProductAttribute(name='red wine')
+        self.assertEqual(new_product_attribute.name, 'red wine')
+
+class TestPreference(TestCase):
+    def test_str_preference(self):
+        new_preference = Preference(value=1)
+        self.assertEqual(new_preference.value, 1)
+
