@@ -1,6 +1,7 @@
 from django.test import TestCase
-from products.models import User
+from products.models import User, Product
 from .forms import MakePaymentForm, OrderForm
+from django.conf import settings
 
 
 
