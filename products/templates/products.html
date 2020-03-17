@@ -55,4 +55,47 @@
     </div>
     {% endfor %}
 </div>
+{% endblock %} {% block script %}
+
+<script>
+    $(document).ready(function() {
+
+        $("#likebutton").submit(function(event) {
+            event.preventDefault(); //prevent default action 
+            var post_url = $(this).attr("action"); //get form action url
+            var form_data = $(this).serialize(); //Encode form elements for submission
+
+            $.post(post_url, form_data, function() {
+                $.ajax({
+                    url: "",
+                    context: document.body,
+                    success: function(s, x) {
+                        $(this).html(s);
+                    }
+                });
+                console.log('Form Submitted!');
+            });
+        });
+    });
+    $(document).ready(function() {
+
+        $("#dislikebutton").submit(function(event) {
+            event.preventDefault(); //prevent default action 
+            var post_url = $(this).attr("action"); //get form action url
+            var form_data = $(this).serialize(); //Encode form elements for submission
+
+            $.post(post_url, form_data, function() {
+                $.ajax({
+                    url: "",
+                    context: document.body,
+                    success: function(s, x) {
+                        $(this).html(s);
+                    }
+                });
+                console.log('Form Submitted!');
+            });
+        });
+    });
+</script>
+
 {% endblock %}

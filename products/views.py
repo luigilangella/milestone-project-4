@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Product, Preference, CatalogCategory, Catalog, ProductDetail, ProductAttribute
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from django.core import serializers
 
 
 def shop(request):
@@ -86,8 +88,9 @@ def productpreference(request, product_id, userpreference):
                 upref.save()
 
                 eachproduct.save()
-
-                return render(request, 'products.html', {'products':products})
+                data = serializers.serialize('json', products)
+                return JsonResponse({'products':data})
+                
 
             elif valueobj == userpreference:
                 obj.delete()
@@ -99,9 +102,9 @@ def productpreference(request, product_id, userpreference):
 
                 eachproduct.save()
 
-
-                return render(request, 'products.html', {'products':products})
-
+                data = serializers.serialize('json', products)
+                return JsonResponse({'products':data}) 
+                
         except Preference.DoesNotExist:
             upref = Preference()
 
@@ -121,9 +124,10 @@ def productpreference(request, product_id, userpreference):
             upref.save()
 
             eachproduct.save()
-
-            return render(request, 'products.html', {'products':products})
-
+            data = serializers.serialize('json', products)
+            return JsonResponse({'products':data})
+            
     else:
+        data = serializers.serialize('json', products)
+        return JsonResponse({'products':data})
         
-        return render(request, 'products.html', {'products':products})
