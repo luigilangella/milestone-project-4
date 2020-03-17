@@ -1,0 +1,1 @@
+web: gunicorn food_store.wsgi:application
