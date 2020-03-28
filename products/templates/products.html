@@ -15,26 +15,28 @@
 
             <div class="row row-flex">
                 <div class="col-xs-6">
-                    <form id="likebutton" method="POST" action="/products/{{product.id}}/preference/1/">
+                    <form class="likebutton" method="POST" action="/products/{{product.id}}/preference/1/">
                         {% csrf_token %}
-                        <input type="hidden">
+
 
                         <p>
                             <button class="btn btn-info btn-xs" type="submit">
                                 <span class="glyphicon glyphicon-thumbs-up"></span> Like
-                            </button> {{product.likes}}
+                            </button>
+                            <span id="likes-{{product.id}}">{{product.likes}}</span>
                         </p>
                     </form>
                 </div>
                 <div class="col-xs-6">
-                    <form id="dislikebutton" method="POST" action="/products/{{product.id}}/preference/2/">
+                    <form class="dislikebutton" method="POST" action="/products/{{product.id}}/preference/2/">
                         {% csrf_token %}
-                        <input type="hidden">
+
 
                         <p>
                             <button class="btn btn-info btn-xs" type="submit">
                                 <span class="glyphicon glyphicon-thumbs-down"></span> Dislike
-                            </button> {{product.dislikes}}
+                            </button>
+                            <span id="dislikes-{{product.id}}">{{product.dislikes}}</span>
                         </p>
                     </form>
                 </div>
@@ -59,40 +61,26 @@
 
 <script>
     $(document).ready(function() {
-
-        $("#likebutton").submit(function(event) {
+        $(".likebutton").submit(function(event) {
             event.preventDefault(); //prevent default action 
             var post_url = $(this).attr("action"); //get form action url
             var form_data = $(this).serialize(); //Encode form elements for submission
 
-            $.post(post_url, form_data, function() {
-                $.ajax({
-                    url: "",
-                    context: document.body,
-                    success: function(s, x) {
-                        $(this).html(s);
-                    }
-                });
-                console.log('Form Submitted!');
+            $.post(post_url, form_data, function(response) {
+                $('#likes-' + response.id).text(response.likes);
+                $('#dislikes-' + response.id).text(response.dislikes);
             });
         });
-    });
-    $(document).ready(function() {
 
-        $("#dislikebutton").submit(function(event) {
+        $(".dislikebutton").submit(function(event) {
+            event.stopImmediatePropagation();
             event.preventDefault(); //prevent default action 
             var post_url = $(this).attr("action"); //get form action url
             var form_data = $(this).serialize(); //Encode form elements for submission
 
-            $.post(post_url, form_data, function() {
-                $.ajax({
-                    url: "",
-                    context: document.body,
-                    success: function(s, x) {
-                        $(this).html(s);
-                    }
-                });
-                console.log('Form Submitted!');
+            $.post(post_url, form_data, function(response) {
+                $('#likes-' + response.id).text(response.likes);
+                $('#dislikes-' + response.id).text(response.dislikes);
             });
         });
     });

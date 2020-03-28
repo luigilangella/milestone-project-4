@@ -9,8 +9,8 @@
 
                         <li role="presentation" class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            Beverages <span class="caret"></span>
-                        </a>
+                                Beverages <span class="caret"></span>
+                            </a>
                             <ul class="dropdown-menu active">
                                 <li>
                                     <a href="{% url 'wines' %}">Wines</a></li>
@@ -21,8 +21,8 @@
 
                         <li role="presentation" class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            Food <span class="caret"></span>
-                        </a>
+                                Food <span class="caret"></span>
+                            </a>
                             <ul class="dropdown-menu">
                                 <li><a href="{% url 'dairy' %}">Dairy</a></li>
                                 <li><a href="{% url 'cured_meats' %}">Cured Meats</a></li>
@@ -52,32 +52,34 @@
                     <p class="product-description">{{ product.description }}</p>
                     <form method="GET" action="{% url 'createpost'%}">
                         <span class="input-group-btn">
-                        <button class="btn btn-info btn-xs" type="submit">Review</button>
-                    </span>
+                            <button class="btn btn-info btn-xs" type="submit">Review</button>
+                        </span>
                     </form>
                     <br class="hidden-sm hidden-md hidden-lg">
                     <div class="row row-flex">
                         <div class="col-xs-6">
-                            <form id="likebutton" method="POST" action="/products/{{product.id}}/preference/1/">
+                            <form class="likebutton" method="POST" action="/products/{{product.id}}/preference/1/">
                                 {% csrf_token %}
-                                <input type="hidden">
+
 
                                 <p>
                                     <button class="btn btn-info btn-xs" type="submit">
-                                    <span class="glyphicon glyphicon-thumbs-up"></span> Like
-                                </button> {{product.likes}}
+                                        <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                                    </button>
+                                    <span id="likes-{{product.id}}">{{product.likes}}</span>
                                 </p>
                             </form>
                         </div>
                         <div class="col-xs-6">
-                            <form id="dislikebutton" method="POST" action="/products/{{product.id}}/preference/2/">
+                            <form class="dislikebutton" method="POST" action="/products/{{product.id}}/preference/2/">
                                 {% csrf_token %}
-                                <input type="hidden">
+
 
                                 <p>
                                     <button class="btn btn-info btn-xs" type="submit">
-                                    <span class="glyphicon glyphicon-thumbs-down"></span> Dislike
-                                </button> {{product.dislikes}}
+                                        <span class="glyphicon glyphicon-thumbs-down"></span> Dislike
+                                    </button>
+                                    <span id="dislikes-{{product.id}}">{{product.dislikes}}</span>
                                 </p>
                             </form>
                         </div>
@@ -90,8 +92,8 @@
                         <div class="input-group">
                             <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
                             <span class="input-group-btn">
-                            <button class="btn btn-success" type="submit">Add</button>
-                        </span>
+                                <button class="btn btn-success" type="submit">Add</button>
+                            </span>
                         </div>
                     </form>
                 </div>
@@ -104,40 +106,26 @@
 
 <script>
     $(document).ready(function() {
-
-        $("#likebutton").submit(function(event) {
+        $(".likebutton").submit(function(event) {
             event.preventDefault(); //prevent default action 
             var post_url = $(this).attr("action"); //get form action url
             var form_data = $(this).serialize(); //Encode form elements for submission
 
-            $.post(post_url, form_data, function() {
-                $.ajax({
-                    url: "",
-                    context: document.body,
-                    success: function(s, x) {
-                        $(this).html(s);
-                    }
-                });
-                console.log('Form Submitted!');
+            $.post(post_url, form_data, function(response) {
+                $('#likes-' + response.id).text(response.likes);
+                $('#dislikes-' + response.id).text(response.dislikes);
             });
         });
-    });
-    $(document).ready(function() {
 
-        $("#dislikebutton").submit(function(event) {
+        $(".dislikebutton").submit(function(event) {
+            event.stopImmediatePropagation();
             event.preventDefault(); //prevent default action 
             var post_url = $(this).attr("action"); //get form action url
             var form_data = $(this).serialize(); //Encode form elements for submission
 
-            $.post(post_url, form_data, function() {
-                $.ajax({
-                    url: "",
-                    context: document.body,
-                    success: function(s, x) {
-                        $(this).html(s);
-                    }
-                });
-                console.log('Form Submitted!');
+            $.post(post_url, form_data, function(response) {
+                $('#likes-' + response.id).text(response.likes);
+                $('#dislikes-' + response.id).text(response.dislikes);
             });
         });
     });

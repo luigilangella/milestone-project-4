@@ -3,6 +3,7 @@ from .models import Product, Preference, CatalogCategory, Catalog, ProductDetail
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.core import serializers
+from django.forms.models import model_to_dict
 
 
 def shop(request):
@@ -52,80 +53,56 @@ def all_products(request):
 def productpreference(request, product_id, userpreference):
     products = Product.objects.all()
     if request.method == "POST":
-        eachproduct = get_object_or_404(Product, id=product_id)
-        
-
+        product = get_object_or_404(Product, id=product_id)
         obj = ''
-
         valueobj = ''
-
         try:
-            obj = Preference.objects.get(user=request.user, product=eachproduct)
-
+            obj = Preference.objects.get(user=request.user, product=product) 
             valueobj = obj.value  # value of userpreference
-
             valueobj = int(valueobj)
-
             userpreference = int(userpreference)
-
             if valueobj != userpreference:
                 obj.delete()
-
                 upref = Preference()
                 upref.user = request.user
-
-                upref.product = eachproduct
-
+                upref.product = product
                 upref.value = userpreference
-
-                if userpreference == 1 and valueobj != 1:
-                    eachproduct.likes += 1
-                    eachproduct.dislikes -= 1
-                elif userpreference == 2 and valueobj != 2:
-                    eachproduct.dislikes += 1
-                    eachproduct.likes -= 1
-
+                if userpreference == 1 :
+                    product.likes += 1
+                    product.dislikes -= 1
+                elif userpreference == 2:
+                    product.dislikes += 1
+                    product.likes -= 1
                 upref.save()
-
-                eachproduct.save()
-                data = serializers.serialize('json', products)
-                return JsonResponse({'products':data})
-                
-
+                product.save()
+                data = { 'id':product.id, 'likes': product.likes, 'dislikes': product.dislikes }
+                return JsonResponse(data)
             elif valueobj == userpreference:
                 obj.delete()
 
                 if userpreference == 1:
-                    eachproduct.likes -= 1
+                    product.likes -= 1
                 elif userpreference == 2:
-                    eachproduct.dislikes -= 1
+                    product.dislikes -= 1
 
-                eachproduct.save()
-
-                data = serializers.serialize('json', products)
-                return JsonResponse({'products':data}) 
+                product.save()
+                data = {'id':product.id, 'likes': product.likes, 'dislikes': product.dislikes }
+                return JsonResponse(data) 
                 
         except Preference.DoesNotExist:
             upref = Preference()
-
             upref.user = request.user
-
-            upref.product = eachproduct
-
+            upref.product = product
             upref.value = userpreference
-
             userpreference = int(userpreference)
-
             if userpreference == 1:
-                eachproduct.likes += 1
+                product.likes += 1
             elif userpreference == 2:
-                eachproduct.dislikes += 1
-
+                product.dislikes += 1
             upref.save()
-
-            eachproduct.save()
-            data = serializers.serialize('json', products)
-            return JsonResponse({'products':data})
+            product.save()
+            data = { 'id':product.id,'likes': product.likes, 'dislikes': product.dislikes }
+            return JsonResponse(data)
             
     else:
         data = serializers.serialize('json', products)
