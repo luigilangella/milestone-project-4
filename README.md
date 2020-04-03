@@ -102,15 +102,35 @@ The website is fully responsive and has got all the functionality accross all th
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+This project has been deployed on [Heroku](https://luigi-food-store.herokuapp.com/).
+To successfully deploy the project:
+1. Create at top level directory a requirements.txt file with the comand:
+    - pip3 freeze > requirements.txt
+2. Create at top level directory a Procfile to allow heroku to know the language used in the project:
+    - type: web: gunicorn food_store.wsgi:application
+    - save the file.
+3. Choose one of the database available from heroku(i use postgree SQL in this project)
+4. Go to your heroku dashboard / settings and provide all the environment variables (config vars) required for the website to work (same as to run locally), also set the DISABLE_COLLECTSTATIC to 1 as the project is set to store all the static files to a AWS bucket.
+5. Connect the heroku project to the github repository and enable automatic deploy so that if any changes get pushed to github a new build will automatically executed from heroku and the project updated.
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
+If you wish to run locally the project you will need to create a env.py file at top level directory and type:
 
-In addition, if it is not obvious, you should also describe how to run your code locally.
+    import os
+    os.environ.setdefault('STRIPE_PUBLISHABLE','yourkey')
+    os.environ.setdefault('STRIPE_SECRET', 'yourkey')
+    os.environ.setdefault('DATABASE_URL', yourkey')
+    os.environ.setdefault('SECRET_KEY', 'yourkey')
+    os.environ.setdefault('AWS_SECRET_KEY_ID','yourkey')
+    os.environ.setdefault('AWS_SECRET_ACCESS_KEY','yourkey')
 
+where you will provide all the environment variables needed to the project to run.
+Make sure to uncomment the "import env" in the settings.py file for the website to fully work locally.
+
+The project has been coded to allow a local SQlite database to be used if run locally and the the DATABASE_URL key is not provided. Once the project has been dowloaded run in the terminal:
+1. python3 manage.py makemigrations
+2. python3 manage.py migrate
+3. python3 manage.py createsuperuser (it will prompt to create username, password, email-address to allow you to access the django-admin page and populate your store with catalogs and products).
+4. python3 manage.py runserver (will use a local server to run the app and you will be able to see the website running in browser on page 127.0.0.1).
 
 ## Credits
 
