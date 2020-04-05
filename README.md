@@ -12,7 +12,9 @@ This website is for everyone that wants to browse and buy something on-line. The
 - As a returning customer i want to be able to leave comments on the products that i have tried.
 - As a brand new customer i want to be able to browse the full catalog to see whats on offer before i register to buy a product.
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+The Database design diagram:
+
+![diagram](/database_design/database_design_graph.jpg)
 
 ## Features
 
@@ -110,7 +112,7 @@ To successfully deploy the project:
     - type: web: gunicorn food_store.wsgi:application
     - save the file.
 3. Choose one of the database available from heroku(i use postgree SQL in this project)
-4. Go to your heroku dashboard / settings and provide all the environment variables (config vars) required for the website to work (same as to run locally), also set the DISABLE_COLLECTSTATIC to 1 as the project is set to store all the static files to a AWS bucket.
+4. Go to your heroku dashboard / settings and provide all the environment variables (config vars) required for the website to work (same as to run locally), also set the DISABLE_COLLECTSTATIC to 1 as the project is set to store all the static files to a AWS bucket which you will have to set up.
 5. Connect the heroku project to the github repository and enable automatic deploy so that if any changes get pushed to github a new build will automatically executed from heroku and the project updated.
 
 If you wish to run locally the project you will need to create a env.py file at top level directory and type:
@@ -134,12 +136,14 @@ The project has been coded to allow a local SQlite database to be used if run lo
 
 ## Credits
 
+- A special thank you goes to my amazing mentor Guido Cecilio for his professional help and support through the project.
+
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- All the content in this website is original and intended for educational use only.
 
 ### Media
-- The photos used in this site were obtained from ...
+- The photos used in this site were obtained from google images.
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+- I received inspiration for this project from some on-line food stores.
