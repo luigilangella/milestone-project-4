@@ -16,6 +16,12 @@ The Database design diagram:
 
 ![diagram](/database_design/database_design_graph.jpg)
 
+The initial mockups:
+
+![mockups1](/mockups/index.html.png)
+![mockups2](/mockups/shop.html.png)
+![mockups3](/mockups/blog.html.png)
+
 ## Features
 
 - Accounts app:
