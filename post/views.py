@@ -16,7 +16,7 @@ def createpost(request):
             post.content = request.POST.get('content')
             post.author = request.user
             post.pub_date = request.POST.get('pub_date')
-            post.image = 'images/' + request.FILES.get('image')
+            post.image = request.POST.get('image')
             post.save()
             form.save()
             allposts = Post.objects.all()
