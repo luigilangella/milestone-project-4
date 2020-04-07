@@ -25,7 +25,7 @@ class TestPostViews(TestCase):
         user = User(username='luigi', password='luigi')
         user.save()
         self.client.force_login(user)
-        data = {'title':'title', 'content':'content', 'author':'luigi'}
+        data = {'title':'title','content':'content','author':1}
         response = self.client.post('/posts/create/',data=data,follow=True)
         allposts = Post.objects.all() 
         context = {'allposts': allposts} 
