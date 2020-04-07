@@ -15,7 +15,7 @@ def createpost(request):
             post.title = request.POST.get('title')
             post.content = request.POST.get('content')
             post.author = request.user
-            post.image = request.POST.get('image')
+            post.image = 'images/' + request.POST.get('image')
             post.save()
             allposts = Post.objects.all()
             context = {'allposts': allposts}
