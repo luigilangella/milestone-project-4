@@ -17,6 +17,7 @@ def createpost(request):
             post.author = request.user
             post.image = 'images/' + request.POST.get('image')
             post.save()
+            form.save()
             allposts = Post.objects.all()
             context = {'allposts': allposts}
             return render(request, 'home.html', context)
