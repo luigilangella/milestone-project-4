@@ -5,20 +5,20 @@ from .forms import PostForm
 
 
 @login_required
-def createpost(request):
-    
+def createpost(request, pk=None):
+    post = get_object_or_404(Post, pk=pk) if pk else None
     if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES)
+        form = PostForm(request.POST, request.FILES, instance=post)
         
         if form.is_valid:
-            post = Post()
-            post.title = request.POST.get('title')
-            post.content = request.POST.get('content')
-            post.author = request.user
-            post.pub_date = request.POST.get('pub_date')
-            post.image = request.POST.get('image')
-            post.save()
-            form.save()
+            post = form.save()
+            # post.title = request.POST.get('title')
+            # post.content = request.POST.get('content')
+            # post.author = request.user
+            # post.pub_date = request.POST.get('pub_date')
+            # post.image = request.POST.get('image')
+            # post.save()
+            # form.save()
             allposts = Post.objects.all()
             context = {'allposts': allposts}
             return render(request, 'home.html', context)
