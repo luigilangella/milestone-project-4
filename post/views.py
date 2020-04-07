@@ -15,6 +15,7 @@ def createpost(request):
             post.title = request.POST.get('title')
             post.content = request.POST.get('content')
             post.author = request.user
+            post.pub_date = request.POST.get('pub_date')
             post.image = 'images/' + request.POST.get('image')
             post.save()
             form.save()
