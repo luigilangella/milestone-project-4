@@ -26,7 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand active" href="/">Luigi's Food Store</a>
+                <a class="navbar-brand" href="/">Luigi's Food Store</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -129,6 +129,18 @@
     </footer>
     <!-- Footer -->
     {% block script %} {% endblock %}
+
+    <script>
+        $(document).ready(function() {
+            $(function() {
+
+                $('a').filter(function() {
+                    return this.href === location.href;
+                }).addClass('active');
+            });
+        });
+    </script>
+
 </body>
 
 </html>
