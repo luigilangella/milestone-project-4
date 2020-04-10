@@ -65,6 +65,15 @@
         background-color: #545454;
     }
     
+    #credit-card-errors {
+        display: none;
+        color: black;
+    }
+    
+    .form-group {
+        color: black;
+    }
+    
     legend {
         display: block;
         width: 100%;

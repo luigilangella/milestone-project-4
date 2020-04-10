@@ -23,30 +23,25 @@
                     <p class="product-description">{{ item.product.description }}</p>
                     <p>Quantity: {{ item.quantity }}</p>
                     <p>Price per Item: <span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ item.product.price }}</p>
+                    <p>Total to pay: <span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
-    <div class="row">
-        <div class="col-xs-12 col-sm-12">
-            <p>Total to pay:</p>
-            <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
-        </div>
-    </div>
 
     <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
         <legend>Payment Details</legend>
 
-        <div id="credit-card-errors" style="display: none; color: black;">
+        <div id="credit-card-errors">
             <div id="alert-message block-message error" id="stripe-error-message"></div>
         </div>
 
-        <div class="form-group col-md-6" style="color: black;">
+        <div class="form-group col-md-6">
             {{ order_form | as_bootstrap }}
         </div>
 
-        <div class="form-group col-md-6" style="color: black;">
+        <div class="form-group col-md-6">
             {{ payment_form | as_bootstrap }}
         </div>
 
