@@ -6,7 +6,7 @@ This is a fully functional e-commerce food store. It allows the end user browse 
  
 ## UX
  
-This website is for everyone that wants to browse and buy something on-line. The website is extremely versatile as you can fully customise the catalogs of products or services to offer to the user and the interface provides an easy way to view / add to cart / pay for the products and quantity chosen. An authentication system allows the user to securely shop and pay for the products.
+This website is for everyone that wants to browse and buy something on-line. The website is extremely versatile as you can fully customise the catalogs of products or services to offer to the user and the interface provides an easy way to view / add to cart / pay for the products and quantity chosen. An authentication system allows the user to securely shop and pay for the products. The social links in the footer of the app are for demonstrative purpose only and they will not redirect the user but can be pointed to a link if needed.
 
 - As a food shopper i want to be able to browse the products by category so that i can narrow the search and save time.
 - As a returning customer i want to be able to leave comments on the products that i have tried.
@@ -47,7 +47,7 @@ Although fully functional, this website could be expanded massively but for time
 
 and many more to come....
 
-## Technologies Used
+## Technologies and Library Used
 
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
@@ -69,8 +69,6 @@ and many more to come....
 
 - [Jinja](https://jinja.palletsprojects.com/en/2.11.x/)
     - I have used Jinja templating engine in order to use template inheritance, add for loops and if statements in the html files and in order to pass information between back and frontend.
-
-## Libraries
 
 - [Bootstrap](https://getbootstrap.com/docs/3.3/)
     - Bootstrap version 3.3.7 has been used to style the website and make it responsive with a mobile first approach.
