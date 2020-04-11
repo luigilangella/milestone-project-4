@@ -1,8 +1,41 @@
+    /* Globals ----------------------------------------*/
+    
     body {
         font-family: Arial;
         padding-top: 100px;
         background-color: rgba(39, 39, 39, 0.788);
     }
+    
+    .row.row-flex {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 30px;
+    }
+    
+    .jumbotron.jumbotron-fluid {
+        height: 100%;
+        background-color: #545454;
+    }
+    
+    h1.header.text-center,
+    h2.header.text-center {
+        color: #2da2e5;
+    }
+    
+    h2.header-login,
+    h3.sub-header-login {
+        text-align: center;
+        margin-top: 0em;
+    }
+    
+    h2.mobile-link {
+        text-align: center;
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+    /* Footer ----------------------------------------*/
     
     footer {
         margin-top: 0px;
@@ -11,6 +44,13 @@
         border-top: 1px solid #545454;
         color: white;
     }
+    
+    p.copyright.text-center {
+        color: white;
+        font-size: medium;
+        font-weight: bold;
+    }
+    /* Navbar ----------------------------------------*/
     
     .navbar {
         background-image: none;
@@ -54,6 +94,7 @@
     .icon-bar {
         background-color: #fff;
     }
+    /* Forms ----------------------------------------*/
     
     .accountform {
         color: #4db0ea;
@@ -77,6 +118,7 @@
     .create-form {
         color: black;
     }
+    /* Legends badges and alerts ----------------------------------------*/
     
     legend {
         display: block;
@@ -102,6 +144,31 @@
     .badge-warning[href] {
         background-color: #c67605;
     }
+    
+    .button.button.btn-cart {
+        border: 1px solid #517c49;
+        font-size: 12px;
+        height: 24px;
+        line-height: 23px;
+        padding: 0 10px;
+        background-color: #517c49;
+        color: #FFF;
+        margin-left: 3px;
+    }
+    
+    .alert.alert-danger {
+        background-color: #961d22;
+        color: #FFF;
+        font-size: 13px;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .alert.alert-success {
+        text-align: center;
+        margin-top: 20px;
+    }
+    /* Products cards-panels, blog posts ----------------------------------------*/
     
     .product {
         background-size: contain;
@@ -135,17 +202,6 @@
     
     p {
         color: black;
-    }
-    
-    .row.row-flex {
-        display: flex;
-        flex-wrap: wrap;
-        padding-top: 30px;
-    }
-    
-    .jumbotron.jumbotron-fluid {
-        height: 100%;
-        background-color: #545454;
     }
     
     .panel {
@@ -183,61 +239,14 @@
     .product-description {
         height: 60px;
     }
+    /* Home page carousel----------------------------------------*/
     
     .carousel-inner>.item>img {
         width: 50%;
         margin: auto;
         height: 400px;
     }
-    
-    .button.button.btn-cart {
-        border: 1px solid #517c49;
-        font-size: 12px;
-        height: 24px;
-        line-height: 23px;
-        padding: 0 10px;
-        background-color: #517c49;
-        color: #FFF;
-        margin-left: 3px;
-    }
-    
-    .alert.alert-danger {
-        background-color: #961d22;
-        color: #FFF;
-        font-size: 13px;
-        font-weight: bold;
-        text-align: center;
-    }
-    
-    .alert.alert-success {
-        text-align: center;
-        margin-top: 20px;
-    }
-    
-    h1.header.text-center,
-    h2.header.text-center {
-        color: #2da2e5;
-    }
-    
-    h2.header-login,
-    h3.sub-header-login {
-        text-align: center;
-        margin-top: 0em;
-    }
-    
-    h2.mobile-link {
-        text-align: center;
-    }
-    
-    h3 {
-        font-size: 18px;
-    }
-    
-    p.copyright.text-center {
-        color: white;
-        font-size: medium;
-        font-weight: bold;
-    }
+    /* Media queries to provide the website with full responsiveness. */
     
     @media screen and (max-width: 414px) {
         .row.row-flex {
