@@ -3,7 +3,8 @@ from .models import Order
 
 
 class MakePaymentForm(forms.Form):
-
+    """ A Django form that allows the logged in user to input the information needed
+        to submit a payment with the stripe api."""
     MONTH_CHOICES = [(i, i) for i in range(1, 12)]
     YEAR_CHOICES = [(i, i) for i in range(2019, 2036)]
 
@@ -15,7 +16,8 @@ class MakePaymentForm(forms.Form):
 
 
 class OrderForm(forms.ModelForm):
-
+    """ A Django form to provide the user with a template to fill in
+        the infomation needed to submit a payment with the stripe api."""
     class Meta:
         model = Order
         fields = (

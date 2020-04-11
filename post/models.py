@@ -5,6 +5,7 @@ from django.utils import timezone
 
 
 class Post(models.Model):
+    """ This Post models allows the logged in user to create a new post and upload an image. """
     title= models.CharField(max_length=300, unique=True)
     content= models.TextField()
     pub_date = models.DateTimeField(blank=True, null=True, default=timezone.now)

@@ -14,6 +14,8 @@ stripe.api_key = settings.STRIPE_SECRET
 
 @login_required()
 def checkout(request):
+    """ This view allows the logged in user to have its order form validated and processed."""
+
     if request.method == "POST":
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)

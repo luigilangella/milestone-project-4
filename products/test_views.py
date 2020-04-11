@@ -6,7 +6,7 @@ from .models import Product, Preference, CatalogCategory, Catalog, ProductDetail
 
 
 class TestShopView(TestCase):
-
+    """ A series of tests to make sure all the views of the products app render as expected. """
     def test_that_the_shop_view_renders(self):
 
         page = self.client.get('/shop')

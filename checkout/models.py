@@ -2,6 +2,8 @@ from django.db import models
 from products.models import Product
 
 class Order(models.Model):
+    """ This model is designed to allow the user to provide
+        informations to pay for an order."""
     full_name = models.CharField(max_length=50, blank=False)
     phone_number = models.CharField(max_length=20, blank=False)
     country = models.CharField(max_length=40, blank=False)
@@ -17,6 +19,7 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """ This model provides the backend with the order informations to process for payment. """
     order = models.ForeignKey(Order, null=False)
     product = models.ForeignKey(Product, null=False)
     quantity = models.IntegerField(blank=False)

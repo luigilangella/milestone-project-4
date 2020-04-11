@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from django.core import serializers
 from django.forms.models import model_to_dict
 
+# This views provide the app with the code to render all the pages by category of products.
 
 def shop(request):
     return render(request, 'shop.html')
@@ -51,6 +52,8 @@ def all_products(request):
 
 @login_required
 def productpreference(request, product_id, userpreference):
+    """ This view will allow the logged in user to express a preference about a specific
+        product and record it on the database working in the back end. """
     products = Product.objects.all()
     if request.method == "POST":
         product = get_object_or_404(Product, id=product_id)

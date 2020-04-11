@@ -4,6 +4,7 @@ from products.models import Product
 class TestHomeView(TestCase):
 
     def test_home_view(self):
+        """ This test makes sure the home page is rendered correctly. """
         product = Product(name='vine', price=12.99)
         product.save()
         products = Product.objects.all()
