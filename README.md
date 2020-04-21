@@ -91,7 +91,7 @@ and many more to come....
 
 ## Testing
 
-To test this project i took advantage of the coverage test suite. Once installed it provides a user friendly html page to find out all the parts of the software that have not been tested and gives you a percentage of the tests that pass.
+To test this project I took advantage of the coverage test suite. Once installed it provides a user friendly html page to find out all the parts of the software that have not been tested and gives you a percentage of the tests that pass.
 
 Once installed the coverage package in the terminal type:
 
@@ -106,7 +106,7 @@ Then run in the terminal:
 This will create at the top directory a folder named 'htmlcov' and within that look for the index.html file and open that in your web browser.
 
 It will display all the tests run and if you need to run some more.
-My testing is at 84% at the moment and although could be improved further i'm confident that the app works fine as i have done some practical testing in the website itself by testing forms, buttons and links.
+My testing is at 84% at the moment and although could be improved further I'm confident that the app works fine as I have done some practical testing in the website itself by testing forms, buttons and links.
 
 I have also taken advantage of TraviCI which offers integrating continuous testing, it is linked to the github repository and the build is passing as you can see at the top of the README file.
 
@@ -122,7 +122,7 @@ To successfully deploy the project:
 2. Create at top level directory a Procfile to allow heroku to know the language used in the project:
    - type: web: gunicorn food_store.wsgi:application
    - save the file.
-3. Choose one of the database available from heroku(i use postgree SQL in this project)
+3. Choose one of the database available from heroku(I use postgree SQL in this project)
 4. Go to your heroku dashboard / settings and provide all the environment variables (config vars) required for the website to work (same as to run locally), also set the DISABLE_COLLECTSTATIC to 1 as the project is set to store all the static files to a AWS bucket which you will have to set up.
 5. Connect the heroku project to the github repository and enable automatic deploy so that if any changes get pushed to github a new build will automatically executed from heroku and the project updated.
 
