@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+ {% extends 'base.html' %} {% load static %} {% block content %}
 <div class="container container-fluid">
     <div class="row row-flex">
         <div class="col-sm-6 col-md-4 col-lg-4">
@@ -17,8 +17,8 @@
 
                         <li role="presentation" class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                Food <span class="caret"></span>
-                            </a>
+                                 Food <span class="caret"></span>
+                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="{% url 'dairy' %}">Dairy</a></li>
                                 <li><a href="{% url 'cured_meats' %}">Cured Meats</a></li>
@@ -48,8 +48,8 @@
                     <p class="product-description">{{ product.description }}</p>
                     <form method="GET" action="{% url 'createpost'%}">
                         <span class="input-group-btn">
-                            <button class="btn btn-info btn-xs" type="submit">Review</button>
-                        </span>
+                             <button class="btn btn-info btn-xs" type="submit">Review</button>
+                         </span>
                     </form>
                     <br class="hidden-sm hidden-md hidden-lg">
                     <div class="row row-flex">
@@ -58,8 +58,8 @@
                                 {% csrf_token %}
                                 <p>
                                     <button class="btn btn-info btn-xs" type="submit">
-                                        <span class="glyphicon glyphicon-thumbs-up"></span> Like
-                                    </button>
+                                         <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                                     </button>
                                     <span id="likes-{{product.id}}">{{product.likes}}</span>
                                 </p>
                             </form>
@@ -69,8 +69,8 @@
                                 {% csrf_token %}
                                 <p>
                                     <button class="btn btn-info btn-xs" type="submit">
-                                        <span class="glyphicon glyphicon-thumbs-down"></span> Dislike
-                                    </button>
+                                         <span class="glyphicon glyphicon-thumbs-down"></span> Dislike
+                                     </button>
                                     <span id="dislikes-{{product.id}}">{{product.dislikes}}</span>
                                 </p>
                             </form>
@@ -84,8 +84,8 @@
                         <div class="input-group">
                             <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity" required>
                             <span class="input-group-btn">
-                                <button class="btn btn-success" type="submit">Add</button>
-                            </span>
+                                 <button class="btn btn-success" type="submit">Add</button>
+                             </span>
                         </div>
                     </form>
                 </div>
@@ -95,32 +95,5 @@
     </div>
 </div>
 {% endblock %} {% block script %}
-
-<script>
-    $(document).ready(function() {
-        $(".likebutton").submit(function(event) {
-            event.preventDefault(); //prevent default action 
-            var post_url = $(this).attr("action"); //get form action url
-            var form_data = $(this).serialize(); //Encode form elements for submission
-
-            $.post(post_url, form_data, function(response) {
-                $('#likes-' + response.id).text(response.likes);
-                $('#dislikes-' + response.id).text(response.dislikes);
-            });
-        });
-
-        $(".dislikebutton").submit(function(event) {
-            event.stopImmediatePropagation();
-            event.preventDefault(); //prevent default action 
-            var post_url = $(this).attr("action"); //get form action url
-            var form_data = $(this).serialize(); //Encode form elements for submission
-
-            $.post(post_url, form_data, function(response) {
-                $('#likes-' + response.id).text(response.likes);
-                $('#dislikes-' + response.id).text(response.dislikes);
-            });
-        });
-    });
-</script>
-
+<script src="{% static 'js/button-handlers.js' %}"></script>
 {% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <div class="container container-fluid">
     <div class="row row-flex">
         <div class="col-sm-6 col-md-4 col-lg-4">
@@ -104,30 +104,5 @@
 </div>
 {% endblock %} {% block script %}
 
-<script>
-    $(document).ready(function() {
-        $(".likebutton").submit(function(event) {
-            event.preventDefault(); //prevent default action 
-            var post_url = $(this).attr("action"); //get form action url
-            var form_data = $(this).serialize(); //Encode form elements for submission
-
-            $.post(post_url, form_data, function(response) {
-                $('#likes-' + response.id).text(response.likes);
-                $('#dislikes-' + response.id).text(response.dislikes);
-            });
-        });
-
-        $(".dislikebutton").submit(function(event) {
-            event.stopImmediatePropagation();
-            event.preventDefault(); //prevent default action 
-            var post_url = $(this).attr("action"); //get form action url
-            var form_data = $(this).serialize(); //Encode form elements for submission
-
-            $.post(post_url, form_data, function(response) {
-                $('#likes-' + response.id).text(response.likes);
-                $('#dislikes-' + response.id).text(response.dislikes);
-            });
-        });
-    });
-</script>
+<script src="{% static 'js/button-handlers.js' %}"></script>
 {% endblock %}
